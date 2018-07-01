@@ -82,7 +82,7 @@
                           <li v-for="user in service.users">
                             <button class="compact red ui button" v-on:click="removeUser(service.users, $index)">Delete User</button>
                             <div class="field">
-                              <label for="uuid-vmess-{{$index}}">Delete UUID（<a href="#" v-on:click.stop="genUserId(service.users, $index)">regenerate</a>）</label>
+                              <label for="uuid-vmess-{{$index}}">Delete UUID (<a href="#" v-on:click.stop="genUserId(service.users, $index)">regenerate</a>)</label>
                               <input type="text" class="active" maxlength="36" v-model="user.uuid" id="uuid-vmess-{{$index}}"></input>
                             </div>
 
@@ -203,7 +203,7 @@
                 </div>
                 <div v-if="clientservice !== undefined" class="field">
                   <input type="checkbox" class="ui checkbox" id="client-mux" v-model="clientMuxEnabled">
-                  <label for="client-mux">是否使用Mux.cool在一个底层连接上传输多个连接（测试特性）</label>
+                  <label for="client-mux">Enable Mux.cool (experiment feature)</label>
                 </div>
               </div>
               <button class="ui button compact" v-clipboard:copy="clientjsonstr">Copy</button>
