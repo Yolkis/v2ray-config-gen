@@ -144,7 +144,7 @@
                             </div>
                             <div class="field">
                               <input type="checkbox" class="ui checkbox" v-model="service.transport.tlsAllowInsecure" id="tls-allow-insecure-{{$index}}"></input>
-                              <label for="tls-allow-insecure-{{$index}}">Allow clients to receive self-signet certificates</label>
+                              <label for="tls-allow-insecure-{{$index}}">Allow clients to receive self-signed certificates</label>
                             </div>
                             <div class="field">
                               <label>Server certificate path (crt)</label>
@@ -178,25 +178,25 @@
                   <input type="text" v-model="serveraddr">
                 </div>
                 <div class="field">
-                  <label>输入本地端口号（建议大于1024）</label>
+                  <label>Enter the local port number (more than 1024 is recommended)</label>
                   <input type="text" v-model="clientport" number min="1" max="65535" maxlength="5">
                 </div>
                 <div class="field">
-                  <label>选择服务</label>
+                  <label>Select service</label>
                   <select v-model="clientservice">
                     <template v-for="service in services">
-                        <option v-if="service.type!='shadowsocks'" :value="$index">服务{{$index + 1}}: {{service.type}} </option>
+                        <option v-if="service.type!='shadowsocks'" :value="$index">service{{$index + 1}}: {{service.type}} </option>
                     </template>
                   </select>
                 </div>
                 <div v-if="clientservice != undefined" class="field">
-                  <label>选择用户</label>
+                  <label>Select user</label>
                   <select v-model="clientuser">
                     <option v-for="cu in clientusers" :value="cu.value">{{cu.name}}</option>
                   </select>
                 </div>
                 <div v-if="clientservice != undefined" class="field">
-                  <label>选择服务端端口</label>
+                  <label>Select server port</label>
                   <select v-model="clientserverport">
                     <option v-for="csp in clientserverports" :value="csp.value"> {{csp.name}} </option>
                   </select>
@@ -206,7 +206,7 @@
                   <label for="client-mux">是否使用Mux.cool在一个底层连接上传输多个连接（测试特性）</label>
                 </div>
               </div>
-              <button class="ui button compact" v-clipboard:copy="clientjsonstr">复制配置</button>
+              <button class="ui button compact" v-clipboard:copy="clientjsonstr">Copy</button>
               <pre v-if="clientserverport != undefined && clientuser != undefined">
       {{clientjson | json 4}}
               </pre>
