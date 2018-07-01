@@ -67,8 +67,8 @@
                       <div class="field">
                           <label>User level</label>
                           <select v-model="service.level">
-                              <option value="0" number>Non-private VPS, better security(0)</option>
-                              <option value="1" number>Private VPS, slightly better performance(1)</option>
+                              <option value="0" number>Public VPS, better security(0)</option>
+                              <option value="1" number>Private VPS, better performance(1)</option>
                           </select>
                       </div>
 
@@ -106,7 +106,7 @@
                             <div class="field">
                               <div class="ui checkbox">
                                 <input type="checkbox" class="ui checkbox" id="dynamic-vmess-{{$index}}" v-model="port.dynamic">
-                                <label for="dynamic-vmess-{{$index}}">                    Enable dynamic port（May reduce traffic control restrictions, it may be faster) </label>
+                                <label for="dynamic-vmess-{{$index}}">                    Enable dynamic port (May reduce traffic restrictions, it may be faster) </label>
                               </div>
                             </div>
 
@@ -120,7 +120,7 @@
                             <div class="field">
                               <div class="ui checkbox">
                                 <input type="checkbox" class="ui checkbox" v-model="port.iskcp" id="iskcp-vmess-{{$index}}"></input>
-                                <label for="iskcp-vmess-{{$index}}">Enable mKCP protocol（faster, but unstable and can blocked）</label>
+                                <label for="iskcp-vmess-{{$index}}">Enable mKCP protocol (faster, but unstable and can be blocked）</label>
                               </div>
                             </div>
 
@@ -139,19 +139,19 @@
                           </div>
                           <template v-if="service.transport.tls">
                             <div class="field">
-                              <label>服务端域名</label>
+                              <label>Server's domain name</label>
                               <input type="text" v-model="service.transport.tlsServerName"></input>
                             </div>
                             <div class="field">
                               <input type="checkbox" class="ui checkbox" v-model="service.transport.tlsAllowInsecure" id="tls-allow-insecure-{{$index}}"></input>
-                              <label for="tls-allow-insecure-{{$index}}">允许客户端接受不安全证书（如自己签发的而不是Let's Encrypt等受信机构签发的）</label>
+                              <label for="tls-allow-insecure-{{$index}}">Allow clients to receive self-signet certificates</label>
                             </div>
                             <div class="field">
-                              <label>服务端证书(crt)路径</label>
+                              <label>Server certificate path (crt)</label>
                               <input type="text" v-model="service.transport.tlsCertificateFile"></input>
                             </div>
                             <div class="field">
-                              <label>服务端密钥(key)路径</label>
+                              <label>Server key path (key)</label>
                               <input type="text" v-model="service.transport.tlsKeyFile"></input>
                             </div>
                           </template>
@@ -161,20 +161,20 @@
                   </div>
                 </ol>
 
-                <button class="ui button" v-on:click="addService(services)">添加服务</button>
+                <button class="ui button" v-on:click="addService(services)">Add service</button>
 
               </div>
             </div>
             <div class="five wide column">
-              <h3>服务端配置</h3>
-              <button class="ui button compact" v-clipboard:copy="serverjsonstr">复制配置</button>
+              <h3>Server configuration</h3>
+              <button class="ui button compact" v-clipboard:copy="serverjsonstr">Copy</button>
               <pre> {{ serverjson | json 4 }} </pre>
             </div>
             <div class="five wide column">
-              <h3>客户端配置</h3>
+              <h3>Client configuration</h3>
               <div class="ui form">
                 <div class="field">
-                  <label>输入服务端地址</label>
+                  <label>Enter the server address</label>
                   <input type="text" v-model="serveraddr">
                 </div>
                 <div class="field">
