@@ -75,6 +75,7 @@
                     </div>
 
                       <div id="vmess-config" v-if="service.type=='vmess'">
+                        <br>
                         <h4 class="ui dividing header">VMess Settings</h4>
 
                         <h5 class="ui dividing header">User Settings</h5>
@@ -94,8 +95,9 @@
                         </ul>
                         <br>
                         <button class="ui button" v-on:click="addUser(service.users)">Add User</button>
-
+                        <br>
                         <h5 class="ui dividing header">Port setting</h5>
+                        <br>
                         <ul>
                           <li v-for="port in service.ports">
                             <button class="red compact ui button" v-on:click="removePort(service.ports, $index)">Delete port</button>
