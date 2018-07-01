@@ -97,7 +97,6 @@
                         <button class="ui button" v-on:click="addUser(service.users)">Add User</button>
 
                         <h5 class="ui dividing header">Port setting</h5>
-                        <br>
                         <ul>
                           <li v-for="port in service.ports">
                             <button class="red compact ui button" v-on:click="removePort(service.ports, $index)">Delete port</button>
@@ -131,7 +130,7 @@
                         </ul>
                         <button class="ui button" v-on:click="addPort(service.ports)">Add port</button>
                       </div>
-
+                      <br>
                       <div>
                         <h4 class="ui dividing header">Settings data delivery</h4>
                         <div>
