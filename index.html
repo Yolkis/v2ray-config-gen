@@ -37,7 +37,7 @@
                     <h4 class="ui dividing header">ShadowsocksSettings</h4>
 
                       <div class="field">
-                          <label>The port number</label>
+                          <label>Port</label>
                           <input type="number" number v-model="service.port">
                       </div>
 
@@ -75,7 +75,7 @@
                     </div>
 
                       <div id="vmess-config" v-if="service.type=='vmess'">
-                        <br>
+
                         <h4 class="ui dividing header">VMess Settings</h4>
 
                         <h5 class="ui dividing header">User Settings</h5>
@@ -180,7 +180,7 @@
                   <input type="text" v-model="serveraddr">
                 </div>
                 <div class="field">
-                  <label>Local port number</label>
+                  <label>Local port</label>
                   <input type="text" v-model="clientport" number min="1" max="65535" maxlength="5">
                 </div>
                 <div class="field">
@@ -205,7 +205,7 @@
                 </div>
                 <div v-if="clientservice !== undefined" class="field">
                   <input type="checkbox" class="ui checkbox" id="client-mux" v-model="clientMuxEnabled">
-                  <label for="client-mux">Enable Mux.cool (experiment feature)</label>
+                  <label for="client-mux">Enable Mux.cool (experimental feature)</label>
                 </div>
               </div>
               <button class="ui button compact" v-clipboard:copy="clientjsonstr">Copy</button>
